@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 태그!</title>
+</head>
+<body>
+    <fieldset>
+        <legend>회원가입</legend>
+        <!-- input 태그의 기본타입은 text라서 생략가능 -->
+        <div>
+            <label>아이디 : <input type="text" autofocus placeholder="아이디를 입력 해 주세요."></label>
+            <input type="button" value="중복체크">
+        </div>
+        <div>
+            <label>비밀번호 : <input type="password" placeholder="비밀번호를 입력 해 주세요."></label>
+        </div>
+        <div>
+            <!-- 나중에 정규식으로 대체 -->
+            <label>이메일 : <input type="email"></label>
+        </div>
+        <div>
+            성별 : 
+            <label><input type="radio" name="gender" checked>남자</label>
+            <label><input type="radio" name="gender">여자</label>
+        </div>
+        <div>
+            취미 :
+            <label><input type="checkbox">코딩</label>
+            <label><input type="checkbox">게임</label>
+            <label><input type="checkbox">술</label>
+            <label><input type="checkbox">음악듣기</label>
+            <label><input type="checkbox">낚시</label>
+        </div>
+        
+        <div>
+            프로필 이미지 :
+            <input type="file" accept=".jpg, .png" multiple>
+        </div>
+
+        <div>
+            나이대 :
+            <select>
+            <option>:: 선택 ::</option>
+            <option>10대</option>
+            <option>20대</option>
+            <option>30대</option>
+            <option>40대</option>
+            <option>50대</option>
+            <option>60대 이상</option>
+            </select>
+        </div>
+        <div>
+            자기소개 :
+            <div>
+                <textarea rows="4" cols="30" placeholder="자기소개를 입력 해 주세요. 증바람 ㄱ?"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <!-- submit과 reset은 나중에 form태그와 연계해서 사용(jsp) -->
+             <!-- input 버튼과 버튼태그는 큰 차이 없음 -->
+            <input type="submit">
+            <input type="button" value="회원가입">
+            <button>회원가입</button>
+            <input type="reset">
+        </div>
+
+    </fieldset>
+</body>
+</html>
