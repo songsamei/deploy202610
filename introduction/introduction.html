@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>온라인 프로필</title>
+    <style>
+        #container {
+            width: 1000px;
+            height: 800px;
+            margin: 20px auto;
+            background-color: rgb(255, 244, 244);
+            border-radius: 25px;
+        }
+        aside {
+            width: 280px;
+            height: 760px;
+            margin: 20px;
+            background-color: rgb(255, 221, 229);
+            float: left;
+            padding: 30px;
+            border: 3px solid rgba(255, 147, 147, 0.318);
+            box-sizing: border-box;
+            border-radius: 25px;
+        }
+        #namecard {
+            width: 200px;
+            height: 200px;
+            margin: 10px 10px;
+            box-sizing: border-box;
+            color: rgba(123, 90, 255, 0.829);
+            text-shadow: 2px 1px rgb(255, 255, 255);
+            text-align: center;
+        }
+        #namecard img {
+            width: 170px;    
+            height: 170px;
+            border-radius: 50%;
+            border: 3px double rgb(255, 255, 255);
+            outline: 3px solid rgba(255, 147, 147, 0.318);
+        }
+
+        #detail {
+            text-align: center;
+            margin-top: 130px;
+            color: rgba(123, 90, 255, 0.829);
+            text-shadow: 1px 1px rgb(227, 227, 227);
+        }
+        #sns {
+            text-align: center;
+            margin-top: 70px;
+            color: rgba(255, 89, 114, 0.829);
+            text-shadow: 1px 1px rgba(255, 147, 147, 0.318);
+        }
+        #sns img {
+            width: 70px;    
+            height: 70px;
+            border-radius: 50%;
+            margin-left: 13px;
+            border: 3px double rgb(255, 255, 255);
+            outline: 3px solid rgba(255, 147, 147, 0.318);
+            float: left;
+        }
+        #yLogo {
+            width: 70px;    
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 13px;
+            border: 3px double rgb(255, 255, 255);
+            outline: 3px solid rgba(255, 147, 147, 0.318);
+            float: right;
+        }
+    </style>
+	<meta charset="utf-8">
+</head>
+
+<body>
+    <div id="container">
+        <!-- 사이드바 -->
+        <aside>
+            <div id="namecard">
+                <img src="yaong.jpg">
+                <h1>🌸김 송 이🌸</h1>    
+                <p>99.03.23</p>
+            </div>
+            <div id="detail">
+                <p>🌏 Incheon, Korea</p>
+                <p>📍 songsamei@gmail.com</p>                                 
+            </div>
+            <div id="sns">
+                <h2>SNS</h2>
+                <img src="instarLogo.png">
+            </div>
+            <div>
+                <img src="youtubeLogo.png" id="yLogo">
+            </div>        
+        </aside>
+        <div id="main">
+            <section>
+                <h2 class="subtitle">자기소개</h2>
+                <p><mark>프로그래밍</mark>에 관심이 많습니다. <br>현재 열심히 공부하며 코딩 중!</p>
+            </section>
+
+            <!-- 경력 -->
+            <!-- <section>
+                <h2 class="subtitle">Experience</h2>
+                <ul>
+                    <li>프론트엔드
+                        <ul>
+                            <li>HTML/CSS/JAVASCRIPT </li>
+                            <li>웹 페이지 잘 만든다 </li>
+                            <li>다 잘함</li> 
+                        </ul>
+                    </li>
+                    <li>백엔드
+                        <ul>
+                            <li>자바 잘함 </li>
+                            <li>오라클 더 잘함</li>
+                        </ul>                        
+                    </li>
+                </ul>             
+            </section> -->
+
+            <!-- 숙련도 -->
+            <!-- <section>
+                <h2 class="subtitle">보유 기술</h2>
+                <li style="list-style: none;"> 
+                    <ul>
+                        <li>자바 </li>
+                        <li>오라클</li>
+                    </ul>                        
+                </li>
+            </section> -->
+
+            <!-- 학력 -->
+            <!-- <section>
+                <h2 class="subtitle">Education</h2>
+                <table>
+                  <caption>학력 사항</caption>
+                  <thead>
+                      <tr>
+                          <th>출신학교</th>
+                          <th>전공</th>
+                          <th>기간</th>
+                          <th>구분</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>좋은대학교</td>
+                          <td>좋은학과</td>
+                          <td>2010.3 ~ 2013.2</td>
+                          <td>졸업</td>
+                      </tr>
+                      <tr>
+                          <td>꽤좋은고등학교</td>
+                          <td> - </td>
+                          <td>2007.3 ~ 2009.2</td>
+                          <td>졸업</td>
+                      </tr>
+                  </tbody>
+                </table>
+            </section>  -->
+        </div>        
+    </div>
+</body>
+</html>
