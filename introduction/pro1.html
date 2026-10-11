@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초대장이 도착했습니다!</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Malgun Gothic", sans-serif;
+            background-color: #090d1a;
+            color: #f4f0ff;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        #intro {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 45%,
+                    rgba(79, 68, 125, 0.35),
+                    transparent 55%
+                ),
+                linear-gradient(
+                    135deg,
+                    #090d1a,
+                    #15172c,
+                    #0a1020
+                );
+            transition: background 0.5s ease;
+            position: relative;
+        }
+
+        .light {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(140, 124, 255, 0.12);
+            filter: blur(90px);
+            animation: lightMove 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .light-one {
+            top: 5%;
+            left: 5%;
+        }
+
+        .light-two {
+            right: 5%;
+            bottom: 5%;
+            background: rgba(113, 158, 255, 0.1);
+            animation-delay: 2s;
+        }
+
+        @keyframes lightMove {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(50px, -30px);
+            }
+        }
+
+        .star {
+            position: absolute;
+            color: #ffffff;
+            opacity: 0.5;
+            animation: twinkle 3s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .star:nth-of-type(1) {
+            top: 15%;
+            left: 20%;
+            font-size: 14px;
+        }
+
+        .star:nth-of-type(2) {
+            top: 25%;
+            right: 18%;
+            font-size: 20px;
+            animation-delay: 1s;
+        }
+
+        .star:nth-of-type(3) {
+            bottom: 20%;
+            left: 15%;
+            font-size: 18px;
+            animation-delay: 2s;
+        }
+
+        .star:nth-of-type(4) {
+            bottom: 15%;
+            right: 22%;
+            font-size: 12px;
+            animation-delay: 0.5s;
+        }
+
+        .star:nth-of-type(5) {
+            top: 12%;
+            right: 40%;
+            font-size: 10px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 0.9;
+                transform: scale(1.2);
+            }
+        }
+
+
+
+        .invitation {
+            position: relative;
+            z-index: 2;
+            width: min(90%, 540px);
+            padding: 60px 35px;
+            text-align: center;
+            background: rgba(20, 24, 45, 0.72);
+            border: 1px solid rgba(207, 198, 255, 0.35);
+            border-radius: 8px;
+            box-shadow:
+                0 0 50px rgba(108, 91, 180, 0.12),
+                inset 0 0 35px rgba(151, 138, 220, 0.04);
+            backdrop-filter: blur(12px);
+            animation: appear 1.5s ease both;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .moon {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: #e1dcff;
+            text-shadow: 0 0 25px rgba(191, 178, 255, 0.8);
+            animation: moonGlow 4s ease-in-out infinite alternate;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #b8b1dc;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(27px, 5vw, 39px);
+            font-weight: normal;
+            letter-spacing: 2px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 2.2;
+            color: #b9bdd2;
+            margin-bottom: 35px;
+        }
+
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            margin: 0 auto 30px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #a9a0df,
+                transparent
+            );
+        }
+
+
+        #enterButton {
+            position: relative;
+            padding: 16px 25px;
+            width: 100%;
+            max-width: 310px;
+            color: #eeebff;
+            background: rgba(127, 113, 192, 0.12);
+            border: 1px solid rgba(194, 182, 255, 0.65);
+            border-radius: 4px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        #enterButton:hover {
+            transform: translateY(-4px);
+            background: rgba(140, 124, 220, 0.3);
+            box-shadow:
+                0 0 25px rgba(157, 142, 255, 0.25);
+        }
+
+        #enterButton:active {
+            transform: scale(0.97);
+        }
+
+
+        .footer-text {
+            margin-top: 30px;
+            color: #777d9c;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section id="intro">
+
+        <div class="light light-one"></div>
+        <div class="light light-two"></div>
+
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+
+
+        <div class="invitation">
+
+            <div class="moon">☾</div>
+
+            <p class="eyebrow">
+                A SPECIAL INTRODUCTION
+            </p>
+
+            <h1>
+                당신을<br>
+                초대합니다
+            </h1>
+
+            <div class="divider"></div>
+
+            <!-- 초대장 본문 -->
+            <p class="description">
+                이곳은 아직 발견되지 않은 세계.<br>
+                저의 이야기가 시작되는 곳입니다.<br><br>
+
+                준비가 되었다면<br>
+                문을 열고 들어오세요.
+            </p>
+
+            <button id="enterButton" type="button">
+                입장하시겠습니까?
+            </button>
+
+            <p class="footer-text">
+                MY STORY BEGINS HERE
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
