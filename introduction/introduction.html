@@ -1,165 +1,303 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>온라인 프로필</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초대장이 도착했습니다!</title>
+
     <style>
-        #container {
-            width: 1000px;
-            height: 800px;
-            margin: 20px auto;
-            background-color: rgb(255, 244, 244);
-            border-radius: 25px;
-        }
-        aside {
-            width: 280px;
-            height: 760px;
-            margin: 20px;
-            background-color: rgb(255, 221, 229);
-            float: left;
-            padding: 30px;
-            border: 3px solid rgba(255, 147, 147, 0.318);
+        * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            border-radius: 25px;
-        }
-        #namecard {
-            width: 200px;
-            height: 200px;
-            margin: 10px 10px;
-            box-sizing: border-box;
-            color: rgba(123, 90, 255, 0.829);
-            text-shadow: 2px 1px rgb(255, 255, 255);
-            text-align: center;
-        }
-        #namecard img {
-            width: 170px;    
-            height: 170px;
-            border-radius: 50%;
-            border: 3px double rgb(255, 255, 255);
-            outline: 3px solid rgba(255, 147, 147, 0.318);
         }
 
-        #detail {
-            text-align: center;
-            margin-top: 130px;
-            color: rgba(123, 90, 255, 0.829);
-            text-shadow: 1px 1px rgb(227, 227, 227);
+        body {
+            font-family: "Malgun Gothic", sans-serif;
+            background-color: #090d1a;
+            color: #f4f0ff;
         }
-        #sns {
-            text-align: center;
-            margin-top: 70px;
-            color: rgba(255, 89, 114, 0.829);
-            text-shadow: 1px 1px rgba(255, 147, 147, 0.318);
+
+        button {
+            font-family: inherit;
         }
-        #sns img {
-            width: 70px;    
-            height: 70px;
+
+        #intro {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 45%,
+                    rgba(79, 68, 125, 0.35),
+                    transparent 55%
+                ),
+                linear-gradient(
+                    135deg,
+                    #090d1a,
+                    #15172c,
+                    #0a1020
+                );
+            transition: background 0.5s ease;
+            position: relative;
+        }
+
+        .light {
+            position: absolute;
+            width: 350px;
+            height: 350px;
             border-radius: 50%;
-            margin-left: 13px;
-            border: 3px double rgb(255, 255, 255);
-            outline: 3px solid rgba(255, 147, 147, 0.318);
-            float: left;
+            background: rgba(140, 124, 255, 0.12);
+            filter: blur(90px);
+            animation: lightMove 8s ease-in-out infinite alternate;
+            pointer-events: none;
         }
-        #yLogo {
-            width: 70px;    
-            height: 70px;
-            border-radius: 50%;
-            margin-right: 13px;
-            border: 3px double rgb(255, 255, 255);
-            outline: 3px solid rgba(255, 147, 147, 0.318);
-            float: right;
+
+        .light-one {
+            top: 5%;
+            left: 5%;
         }
+
+        .light-two {
+            right: 5%;
+            bottom: 5%;
+            background: rgba(113, 158, 255, 0.1);
+            animation-delay: 2s;
+        }
+
+        @keyframes lightMove {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(50px, -30px);
+            }
+        }
+
+        .star {
+            position: absolute;
+            color: #ffffff;
+            opacity: 0.5;
+            animation: twinkle 3s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .star:nth-of-type(1) {
+            top: 15%;
+            left: 20%;
+            font-size: 14px;
+        }
+
+        .star:nth-of-type(2) {
+            top: 25%;
+            right: 18%;
+            font-size: 20px;
+            animation-delay: 1s;
+        }
+
+        .star:nth-of-type(3) {
+            bottom: 20%;
+            left: 15%;
+            font-size: 18px;
+            animation-delay: 2s;
+        }
+
+        .star:nth-of-type(4) {
+            bottom: 15%;
+            right: 22%;
+            font-size: 12px;
+            animation-delay: 0.5s;
+        }
+
+        .star:nth-of-type(5) {
+            top: 12%;
+            right: 40%;
+            font-size: 10px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 0.9;
+                transform: scale(1.2);
+            }
+        }
+
+
+
+        .invitation {
+            position: relative;
+            z-index: 2;
+            width: min(90%, 540px);
+            padding: 60px 35px;
+            text-align: center;
+            background: rgba(20, 24, 45, 0.72);
+            border: 1px solid rgba(207, 198, 255, 0.35);
+            border-radius: 8px;
+            box-shadow:
+                0 0 50px rgba(108, 91, 180, 0.12),
+                inset 0 0 35px rgba(151, 138, 220, 0.04);
+            backdrop-filter: blur(12px);
+            animation: appear 1.5s ease both;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .moon {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: #e1dcff;
+            text-shadow: 0 0 25px rgba(191, 178, 255, 0.8);
+            animation: moonGlow 4s ease-in-out infinite alternate;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #b8b1dc;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(27px, 5vw, 39px);
+            font-weight: normal;
+            letter-spacing: 2px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 2.2;
+            color: #b9bdd2;
+            margin-bottom: 35px;
+        }
+
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            margin: 0 auto 30px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #a9a0df,
+                transparent
+            );
+        }
+
+
+        #enterButton {
+            position: relative;
+            padding: 16px 25px;
+            width: 100%;
+            max-width: 310px;
+            color: #eeebff;
+            background: rgba(127, 113, 192, 0.12);
+            border: 1px solid rgba(194, 182, 255, 0.65);
+            border-radius: 4px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        #enterButton:hover {
+            transform: translateY(-4px);
+            background: rgba(140, 124, 220, 0.3);
+            box-shadow:
+                0 0 25px rgba(157, 142, 255, 0.25);
+        }
+
+        #enterButton:active {
+            transform: scale(0.97);
+        }
+
+
+        .footer-text {
+            margin-top: 30px;
+            color: #777d9c;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
     </style>
-	<meta charset="utf-8">
 </head>
 
 <body>
-    <div id="container">
-        <!-- 사이드바 -->
-        <aside>
-            <div id="namecard">
-                <img src="yaong.jpg">
-                <h1>🌸김 송 이🌸</h1>    
-                <p>99.03.23</p>
-            </div>
-            <div id="detail">
-                <p>🌏 Incheon, Korea</p>
-                <p>📍 songsamei@gmail.com</p>                                 
-            </div>
-            <div id="sns">
-                <h2>SNS</h2>
-                <img src="instarLogo.png">
-            </div>
-            <div>
-                <img src="youtubeLogo.png" id="yLogo">
-            </div>        
-        </aside>
-        <div id="main">
-            <section>
-                <h2 class="subtitle">자기소개</h2>
-                <p><mark>프로그래밍</mark>에 관심이 많습니다. <br>현재 열심히 공부하며 코딩 중!</p>
-            </section>
 
-            <!-- 경력 -->
-            <!-- <section>
-                <h2 class="subtitle">Experience</h2>
-                <ul>
-                    <li>프론트엔드
-                        <ul>
-                            <li>HTML/CSS/JAVASCRIPT </li>
-                            <li>웹 페이지 잘 만든다 </li>
-                            <li>다 잘함</li> 
-                        </ul>
-                    </li>
-                    <li>백엔드
-                        <ul>
-                            <li>자바 잘함 </li>
-                            <li>오라클 더 잘함</li>
-                        </ul>                        
-                    </li>
-                </ul>             
-            </section> -->
+    <section id="intro">
 
-            <!-- 숙련도 -->
-            <!-- <section>
-                <h2 class="subtitle">보유 기술</h2>
-                <li style="list-style: none;"> 
-                    <ul>
-                        <li>자바 </li>
-                        <li>오라클</li>
-                    </ul>                        
-                </li>
-            </section> -->
+        <div class="light light-one"></div>
+        <div class="light light-two"></div>
 
-            <!-- 학력 -->
-            <!-- <section>
-                <h2 class="subtitle">Education</h2>
-                <table>
-                  <caption>학력 사항</caption>
-                  <thead>
-                      <tr>
-                          <th>출신학교</th>
-                          <th>전공</th>
-                          <th>기간</th>
-                          <th>구분</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>좋은대학교</td>
-                          <td>좋은학과</td>
-                          <td>2010.3 ~ 2013.2</td>
-                          <td>졸업</td>
-                      </tr>
-                      <tr>
-                          <td>꽤좋은고등학교</td>
-                          <td> - </td>
-                          <td>2007.3 ~ 2009.2</td>
-                          <td>졸업</td>
-                      </tr>
-                  </tbody>
-                </table>
-            </section>  -->
-        </div>        
-    </div>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+        <span class="star">✧</span>
+        <span class="star">✦</span>
+
+
+        <div class="invitation">
+
+            <div class="moon">☾</div>
+
+            <p class="eyebrow">
+                A SPECIAL INTRODUCTION
+            </p>
+
+            <h1>
+                당신을<br>
+                초대합니다
+            </h1>
+
+            <div class="divider"></div>
+
+            <!-- 초대장 본문 -->
+            <p class="description">
+                이곳은 아직 발견되지 않은 세계.<br>
+                저의 이야기가 시작되는 곳입니다.<br><br>
+
+                준비가 되었다면<br>
+                문을 열고 들어오세요.
+            </p>
+
+            <button id="enterButton" type="button">
+                입장하시겠습니까?
+            </button>
+
+            <p class="footer-text">
+                MY STORY BEGINS HERE
+            </p>
+
+        </div>
+
+    </section>
+
 </body>
 </html>
